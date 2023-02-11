@@ -20,7 +20,7 @@ export const ThemeSwitcher = ({className}: ThemeSwitcherProps) => {
 			onClick={toggleTheme}
 		>
 			{theme === Theme.DARK
-				? <DarkIcon/>
+				? <DarkIcon fill={'#0115C6'}/>
 				: <LightIcon/>
 			}
 		</Button>

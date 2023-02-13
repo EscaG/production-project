@@ -1,6 +1,7 @@
 import HTMWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
@@ -19,5 +20,8 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
       __IS_DEV__: JSON.stringify(isDev),
     }),
     (() => (isDev ? new ReactRefreshWebpackPlugin({ overlay: false }) : [])),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+    }),
   ];
 }

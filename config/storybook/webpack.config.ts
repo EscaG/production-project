@@ -10,6 +10,11 @@ export default function ({ config }: { config: webpack.Configuration }) {
     html: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
+
+  config.plugins.push(new webpack.DefinePlugin({
+    __IS_DEV__: JSON.stringify(true),
+  }));
+
   config.resolve.modules.push(paths.src);
   config.resolve.extensions.push('.ts', '.tsx');
 

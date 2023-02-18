@@ -3,10 +3,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Button, ThemeButton } from './Button';
-import 'app/styles/index.scss';
 
 export default {
-  title: '/shared/Button',
+  title: 'shared/Button',
   component: Button,
   argTypes: {
     backgroundColor: { control: 'color' },

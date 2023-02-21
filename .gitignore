@@ -3,3 +3,6 @@
 .idea
 .vscode
 .vs-code
+/storybook-static
+.loki/report.html
+.loki/report.json

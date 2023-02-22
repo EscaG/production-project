@@ -6,7 +6,6 @@ import { Sidebar } from 'widgets/Sidebar';
 
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
-import './styles/index.scss';
 
 export const App: FC = () => {
   const { theme } = useTheme();
@@ -15,6 +14,7 @@ export const App: FC = () => {
     <div className={classNames('app', {}, [theme])}>
       <Suspense fallback="">
         <Navbar />
+
         <div className="content-page">
           <Sidebar />
           <AppRouter />

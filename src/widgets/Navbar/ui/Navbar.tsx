@@ -5,6 +5,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 import { useTranslation } from 'react-i18next';
 import { Modal } from 'shared/ui/Modal/Modal';
+import { LoginModal } from 'features/AuthByUsername';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -16,8 +17,12 @@ export const Navbar = ({ className }: NavbarProps) => {
 
   const { t } = useTranslation();
 
-  const onToggleModal = useCallback(() => {
-    setIsAuthModal((prev) => !prev);
+  const onCloseModal = useCallback(() => {
+    setIsAuthModal(false);
+  }, []);
+
+  const onShowModal = useCallback(() => {
+    setIsAuthModal(true);
   }, []);
 
   return (
@@ -25,16 +30,11 @@ export const Navbar = ({ className }: NavbarProps) => {
       <Button
         className={cls.links}
         theme={ButtonTheme.CLEAR_INVERTED}
-        onClick={onToggleModal}
+        onClick={onShowModal}
       >
         {t('Войти')}
       </Button>
-
-      <Modal isOpen={isAuthModal} onClose={onToggleModal}>
-        {/* eslint-disable-next-line i18next/no-literal-string */}
-        {/* eslint-disable-next-line i18next/no-literal-string,max-len,react/no-unescaped-entities */}
-        Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
-      </Modal>
+      <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
     </div>
   );
 };

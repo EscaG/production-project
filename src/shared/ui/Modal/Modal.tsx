@@ -12,6 +12,7 @@ interface ModalProps {
   className?: string;
   children?: ReactNode;
   isOpen?: boolean;
+  lazy?: boolean;
   onClose?: () => void;
 }
 
@@ -23,9 +24,12 @@ export const Modal = (props: ModalProps) => {
     children,
     isOpen,
     onClose,
+    lazy,
   } = props;
 
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const { theme } = useTheme();
@@ -64,10 +68,20 @@ export const Modal = (props: ModalProps) => {
     };
   }, [isOpen, onKeyDown]);
 
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
+
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
   };
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>

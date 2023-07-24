@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -9,6 +9,7 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getLoginUsername } from '../../model/selectors/getLoginUserName/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
@@ -21,15 +22,16 @@ import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
     className?: string;
+    onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
   loginForm: loginReducer,
 };
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
@@ -44,9 +46,12 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 
-  const onLoginClick = useCallback(() => {
-    dispatch(loginByUsername({ username, password }));
-  }, [dispatch, password, username]);
+  const onLoginClick = useCallback(async () => {
+    const res = await dispatch(loginByUsername({ username, password }));
+    if (res.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+    }
+  }, [dispatch, password, username, onSuccess]);
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>

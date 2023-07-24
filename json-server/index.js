@@ -17,6 +17,22 @@ server.use(async (req, res, next) => {
   next();
 });
 
+// if (req.path === '/users') {
+//   const { username } = req.body
+//
+//   const db = JSON.parse(
+//     fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'),
+//   )
+//
+//   const { users = [] } = db
+//
+//   const userFromBd = users.find((user) => user.username === username)
+//
+//   if (userFromBd) {
+//     return res.status(409).json('User already  exists')
+//   }
+// }
+
 // Эндпоинт для логина
 server.post('/login', (req, res) => {
   try {

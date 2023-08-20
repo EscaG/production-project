@@ -58,9 +58,11 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error', // Проверяем зависимости эффекта
     'no-param-reassign': 'off',
     'linebreak-style': ['error', 'windows'],
+    'no-undef': 'off',
   },
   globals: {
     __IS_DEV__: true,
+    __API__: true,
   },
   overrides: [
     {

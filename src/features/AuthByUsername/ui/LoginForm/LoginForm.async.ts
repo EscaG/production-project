@@ -6,7 +6,7 @@ import { LoginFormProps } from './LoginForm';
 
 const LoginFormAsync = lazy<FC<LoginFormProps>>(() => new Promise((res) => {
   // @ts-ignore
-  setTimeout(() => res(import('./LoginForm')), 1000);
+  setTimeout(() => res(import('./LoginForm')), 300);
 }));
 
 export default LoginFormAsync;

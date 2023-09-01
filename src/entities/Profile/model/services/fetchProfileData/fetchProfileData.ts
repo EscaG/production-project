@@ -9,10 +9,8 @@ export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<stri
 
     try {
       const response = await extra.api.get<Profile>('/profile');
-      console.log(response.data);
       return response.data;
     } catch (e) {
-      console.log(e);
       return rejectWithValue('Неверный логин');
     }
   },

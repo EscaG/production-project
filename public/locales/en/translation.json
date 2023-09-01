@@ -1,13 +1,13 @@
 {
-  "Тестовый перевод": "Test example",
-  "Перевод": "Translate",
-  "Язык": "English",
-  "Короткий язык": "En",
   "О сайте": "About",
   "Главная": "Home",
+  "Профиль": "Profile",
+  "Язык": "English",
+  "Короткий язык": "En",
   "Страница не найдена": "Page not found",
   "Обновить страницу": "Refresh the page",
   "Произошла непредвиденная ошибка": "An unexpected error has occurred",
+  "Попробуйте обновить страницу": "Try refreshing the page",
   "Войти": "Log In",
   "Выйти": "Log Out ",
   "increment": "increment",
@@ -15,5 +15,5 @@
   "Введите логин": "Enter login",
   "Введите пароль": "Enter password",
   "Форма авторизации": "Authorization form",
-  "Неверный логин": "Uncorrect username or password"
+  "Неверный логин": "Uncorrected username or password"
 }

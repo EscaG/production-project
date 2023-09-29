@@ -48,7 +48,7 @@ export const Select = memo((props: AppLinkProps) => {
     <div className={classNames(cls.wrapper, mods, [className])}>
       {label && (
         <span className={cls.label}>
-          {`${label}>`}
+          {`${label} >`}
         </span>
       )}
       <select

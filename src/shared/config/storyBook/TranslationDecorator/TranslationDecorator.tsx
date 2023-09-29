@@ -1,7 +1,6 @@
 import { Suspense } from 'react';
 import { Story } from '@storybook/react';
 import { I18nextProvider } from 'react-i18next';
-import i18nForTest from 'shared/config/i18n/i18nForTest';
 import i18n from 'shared/config/i18n/i18n';
 
 export const TranslationDecorator = (StoryComponent: Story) => (

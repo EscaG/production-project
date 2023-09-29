@@ -7,8 +7,14 @@
 	"Ваше имя": "Your firstname",
 	"Ваша фамилия": "Your lastname",
 	"Ваш Возраст": "Your age",
+	"Город": "City",
 	"Введите имя пользователя": "Enter username",
 	"Введите ссылку на аватар": "Enter avatar link",
 	"Укажите валюту": "Choose currency",
-	"Укажите страну": "Choose country"
+	"Укажите страну": "Choose country",
+	"Серверная ошибка": "Server error",
+	"Данные не указаны": "Data not specified",
+	"Некорректный регион": "Incorrect city",
+	"Некорректный возраст": "Incorrect age",
+	"Имя и фамилия обязательны": "First and last name are required"
 }

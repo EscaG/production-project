@@ -59,10 +59,12 @@ module.exports = {
     'no-param-reassign': 'off',
     'linebreak-style': ['error', 'windows'],
     'no-undef': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
   },
   globals: {
     __IS_DEV__: true,
     __API__: true,
+    __PROJECT__: true,
   },
   overrides: [
     {

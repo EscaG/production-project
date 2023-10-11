@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 
-import { AboutPage } from './AboutPage';
+import AboutPage from './AboutPage';
 
 export default {
   title: 'pages/AboutPage',

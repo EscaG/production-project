@@ -1,4 +1,8 @@
 export {
+  getUserInited,
+} from 'entities/User/model/selectors/getUserInited/getUserInited';
+
+export {
   getUserAuthData,
 } from './model/selectors/getUserAuthData/getUserAuthData';
 

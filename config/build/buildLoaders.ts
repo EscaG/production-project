@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 import { buildCssLoaders } from './loaders/buildCssLoaders';
+import { buildBabelLoader } from './loaders/buildBabelloader';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const fileLoader = {
@@ -17,26 +18,6 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     use: ['@svgr/webpack'],
   };
 
-  const babelLoader = {
-    test: /\.(js|ts|tsx|jsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env'],
-        plugins: [
-          [
-            'i18next-extract',
-            {
-              locales: ['ru', 'en'],
-              keyAsDefaultValue: true,
-            },
-          ],
-        ],
-      },
-    },
-  };
-
   const typeScriptLoader = {
     test: /\.tsx?$/,
     use: 'ts-loader',
@@ -44,6 +25,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   };
 
   const scssLoader = buildCssLoaders(isDev);
+  const babelLoader = buildBabelLoader(isDev);
 
   return [
     fileLoader,

@@ -4,7 +4,6 @@
 
 .placeholder {
   margin-right: 5px;
-  opacity: 0.7;
 }
 
 .input {
@@ -13,8 +12,8 @@
   outline: none;
   width: 100%;
   caret-color: transparent;
-  color: var(--primary-color);
-  font: var(--font-size-l);
+  color: transparent;
+  text-shadow: 0 0 0 var(--primary-color);
 
   &:focus {
     outline: none;
@@ -28,12 +27,12 @@
 }
 
 .caret {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   height: 3px;
   width: 9px;
   background: var(--primary-color);
+  bottom: 0;
+  left: 0;
+  position: absolute;
   animation: blink 0.7s forwards infinite;
 }
 

@@ -17,13 +17,18 @@ import {
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
   profile: profileReducer,
 };
 
-const ProfilePage = () => {
+interface ProfilePageProps {
+  className?: string;
+}
+
+const ProfilePage = ({ className }: ProfilePageProps) => {
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
 
@@ -82,7 +87,7 @@ const ProfilePage = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div>
+      <div className={classNames('', {}, [className])}>
         <ProfilePageHeader />
         {validateErrors?.length && validateErrors.map((err) => (
           <Text

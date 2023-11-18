@@ -14,6 +14,7 @@ import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import { ArticleCodeBlockComponent } from 'entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -43,11 +44,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   let content;
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchArticleById(id));
-    }
-  }, [dispatch, id]);
+  useInitialEffect(() => {
+    dispatch(fetchArticleById(id));
+  });
 
   const renderBlock = useCallback((block: ArticleBlock, index) => {
     switch (block.type) {

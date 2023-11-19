@@ -18,5 +18,7 @@
   "Введите пароль": "Enter password",
   "Форма авторизации": "Authorization form",
   "Неверный логин": "Uncorrected username or password",
-	"Статья не найдена": "Article not found"
+	"Статья не найдена": "Article not found",
+	"Введите комментарий": "Введите комментарий",
+  "Отправить": "Отправить"
 }

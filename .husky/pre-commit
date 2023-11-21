@@ -3,7 +3,9 @@
 
 
 npm run build:prod
+npm run lint:ts:fix
 npm run lint:ts
+npm run stylelint:scss:fix
 npm run stylelint:scss
 npm run test:unit
 npm run storybook:build

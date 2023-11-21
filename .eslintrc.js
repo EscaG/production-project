@@ -60,6 +60,7 @@ module.exports = {
     'linebreak-style': ['error', 'windows'],
     'no-undef': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
+    'react/no-array-index-key': 'off',
   },
   globals: {
     __IS_DEV__: true,

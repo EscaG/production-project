@@ -7,7 +7,7 @@ const initialState: AddCommentFormSchema = {
 };
 
 export const addCommentFormSlice = createSlice({
-  name: 'addCommentFormForm',
+  name: 'addCommentForm',
   initialState,
   reducers: {
     setText: (state, action: PayloadAction<string>) => {

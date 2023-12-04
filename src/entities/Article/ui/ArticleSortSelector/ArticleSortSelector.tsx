@@ -27,7 +27,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
   const orderOptions = useMemo<SelectOption<SortOrder>[]>(() => [
     {
       value: 'asc',
-      content: t('возростанию'),
+      content: t('возрастанию'),
     },
     {
       value: 'desc',

@@ -48,6 +48,7 @@ module.exports = {
           'to',
           'fill',
           'data-testid',
+          'target',
         ],
       },
     ],
@@ -61,6 +62,7 @@ module.exports = {
     'no-undef': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     'react/no-array-index-key': 'off',
+    'arrow-body-style': 'off',
   },
   globals: {
     __IS_DEV__: true,

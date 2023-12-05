@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { AddCommentForm } from 'features/addNewComment';
 import { ArticleDetails, ArticleList } from 'entities/Article';
@@ -10,7 +10,6 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Page } from 'widgets/Page/Page';
 import { getArticleDetailsIsLoading } from 'entities/Article/model/selectors/articleDetails';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
@@ -24,6 +23,9 @@ import {
 } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { articleDetailsPageReducer } from '../../model/slices';
 import cls from './ArticleDetailsPage.module.scss';
+import {
+  ArticleDetailsPageHeader
+} from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailPageProps {
   className?: string;
@@ -43,7 +45,6 @@ const ArticleDetailsPage = (props: ArticleDetailPageProps) => {
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -53,10 +54,6 @@ const ArticleDetailsPage = (props: ArticleDetailPageProps) => {
   const onSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text));
   }, [dispatch]);
-
-  const obBackToList = useCallback(() => {
-    navigate(-1);
-  }, [navigate]);
 
   if (!id) {
     return (
@@ -69,7 +66,7 @@ const ArticleDetailsPage = (props: ArticleDetailPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.ArticleDetailPage, {}, [className])}>
-        <Button theme={ButtonTheme.OUTLINE} onClick={obBackToList}>{t('Назад к списку')}</Button>
+        <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <Text
           size={TextSize.L}

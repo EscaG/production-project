@@ -17,7 +17,7 @@ import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
   className?: string;
-  article: Article;
+  article: Article | null;
   view: ArticleView;
   target?: HTMLAttributeAnchorTarget;
 }
@@ -31,13 +31,17 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   } = props;
   const { t } = useTranslation();
 
-  const types = <Text className={cls.types} text={article.type.join(', ')} />;
+  const types = <Text className={cls.types} text={article?.type.join(', ')} />;
   const views = (
     <>
-      <Text className={cls.views} text={String(article.views)} />
+      <Text className={cls.views} text={String(article?.views)} />
       <Icon Svg={EyeIcon} />
     </>
   );
+
+  if (!article) {
+    return null;
+  }
 
   if (view === ArticleView.BIG) {
     const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;

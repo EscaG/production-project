@@ -1,8 +1,10 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/ui/Select/Select';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
+import { HStack } from 'shared/ui/Stack';
 import { Currency } from '../../model/types/currency';
+import cls from './CurrencySelect.module.scss';
 
 interface CurrencySelectProps{
   className?: string;
@@ -32,13 +34,19 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
   }, [onChange]);
 
   return (
-    <Select
+    <HStack
       className={classNames('', {}, [className])}
-      label={t('Укажите валюту')}
-      options={options}
-      value={value}
-      readonly={readonly}
-      onChange={onChangeHandler}
-    />
+    >
+      <span className={cls.label}>
+        {`${t('Укажите валюту')} >`}
+      </span>
+      <ListBox
+        value={value}
+        items={options}
+        defaultValue={t('Укажите валюту')}
+        onChange={onChangeHandler}
+        readonly={readonly}
+      />
+    </HStack>
   );
 });

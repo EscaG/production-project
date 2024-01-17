@@ -1,0 +1,72 @@
+.ListBox {
+  position: relative;
+}
+
+.trigger {
+  cursor: pointer;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  background: none;
+  padding: 6px 15px;
+  margin: 0;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    cursor: unset;
+    opacity: 0.8;
+  }
+}
+
+.options {
+  position: absolute;
+  overflow: hidden;
+  min-width: 100%;
+  background: var(--listbox-bg);
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 8px  var(--listbox-bg);
+  z-index: 10;
+
+  &.optionsBottomLeft {
+    right: 0;
+  }
+
+  &.optionsBottomRight {
+    left: 0;
+  }
+
+  &.optionsTopLeft {
+    bottom: 100%;
+    right: 0;
+    box-shadow: 0 -4px 8px  var(--listbox-bg);
+    border-radius: 12px 12px 0 0;
+  }
+
+  &.optionsTopRight {
+    bottom: 100%;
+    left: 0;
+    box-shadow: 0 -4px 8px  var(--listbox-bg);
+    border-radius: 12px 12px 0 0;
+  }
+}
+
+.optionsItem {
+  padding: 6px 15px;
+  cursor: pointer;
+}
+
+.active {
+  background: var(--bg-color);
+}
+
+.selected {
+  opacity: 0.8;
+  color: var(--secondary-color);
+}
+
+.disabled {
+  cursor: unset;
+  color: gray;
+}

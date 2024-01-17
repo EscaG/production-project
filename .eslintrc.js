@@ -22,6 +22,7 @@ module.exports = {
     '@typescript-eslint',
     'i18next',
     'react-hooks',
+    'ulbi-tv-plugin',
   ],
   rules: {
     'react/jsx-filename-extension': [
@@ -49,6 +50,12 @@ module.exports = {
           'fill',
           'data-testid',
           'target',
+          'justify',
+          'align',
+          'gap',
+          'direction',
+          'role',
+          'as',
         ],
       },
     ],
@@ -63,6 +70,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'error',
     'react/no-array-index-key': 'off',
     'arrow-body-style': 'off',
+    'ulbi-tv-plugin/path-checker': 'error',
   },
   globals: {
     __IS_DEV__: true,

@@ -1,8 +1,10 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/ui/Select/Select';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
+import { HStack } from 'shared/ui/Stack';
 import { Country } from '../../model/types/country';
+import cls from './CountrySelect.module.scss';
 
 interface CountrySelectProps{
   className?: string;
@@ -32,13 +34,19 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
   }, [onChange]);
 
   return (
-    <Select
+    <HStack
       className={classNames('', {}, [className])}
-      label={t('Укажите страну')}
-      options={options}
-      value={value}
-      readonly={readonly}
-      onChange={onChangeHandler}
-    />
+    >
+      <span className={cls.label}>
+        {`${t('Укажите страну')} >`}
+      </span>
+      <ListBox
+        value={value}
+        items={options}
+        defaultValue={t('Укажите страну')}
+        onChange={onChangeHandler}
+        readonly={readonly}
+      />
+    </HStack>
   );
 });

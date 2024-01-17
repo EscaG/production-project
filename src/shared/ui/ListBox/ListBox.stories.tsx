@@ -11,16 +11,27 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [
+    (Story) => (
+      <div style={{
+        padding: 100,
+        display: 'flex',
+      }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
 } as ComponentMeta<typeof ListBox>;
 
 const Template: ComponentStory<typeof ListBox> = (props) => <ListBox {...props} />;
 const value: string = 'Katelyn Rohan';
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const TopLeft = Template.bind({});
+TopLeft.args = {
   defaultValue: 'Выберите значение',
-  value,
-  direction: 'bottom',
+  direction: 'top left',
+  value: '123',
   items: [
     { value: 'Durward Reynolds', content: 'Durward Reynolds' },
     { value: 'Kenton Towne', content: 'Kenton Towne' },
@@ -30,26 +41,26 @@ Primary.args = {
   ],
 };
 
-export const Dark = Template.bind({});
-Dark.args = {
+export const TopRightDark = Template.bind({});
+TopRightDark.args = {
   defaultValue: 'Выберите значение',
-  value,
-  direction: 'bottom',
+  value: '123',
+  direction: 'top right',
   items: [
-    { value: 'Durward Reynolds', content: 'Durward Reynolds' },
+    { value: '123', content: 'Durward Reynolds' },
     { value: 'Kenton Towne', content: 'Kenton Towne' },
     { value: 'Therese Wunsch', content: 'Therese Wunsch' },
     { value: 'Benedict Kessler', content: 'Benedict Kessler', disabled: true },
     { value: 'Katelyn Rohan', content: 'Katelyn Rohan' },
   ],
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+TopRightDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const OrangeNotChosen = Template.bind({});
-OrangeNotChosen.args = {
+export const BottomRightOrange = Template.bind({});
+BottomRightOrange.args = {
   defaultValue: 'Выберите значение',
+  direction: 'bottom right',
   value: undefined,
-  direction: 'bottom',
   items: [
     { value: 'Durward Reynolds', content: 'Durward Reynolds' },
     { value: 'Kenton Towne', content: 'Kenton Towne', disabled: true },
@@ -58,4 +69,18 @@ OrangeNotChosen.args = {
     { value: 'Katelyn Rohan', content: 'Katelyn Rohan' },
   ],
 };
-OrangeNotChosen.decorators = [ThemeDecorator(Theme.ORANGE)];
+BottomRightOrange.decorators = [ThemeDecorator(Theme.ORANGE)];
+
+export const BottomLeft = Template.bind({});
+BottomLeft.args = {
+  defaultValue: 'Выберите значение',
+  direction: 'bottom left',
+  value,
+  items: [
+    { value: 'Durward Reynolds', content: 'Durward Reynolds' },
+    { value: 'Kenton Towne', content: 'Kenton Towne', disabled: true },
+    { value: 'Therese Wunsch', content: 'Therese Wunsch' },
+    { value: 'Benedict Kessler', content: 'Benedict Kessler', disabled: true },
+    { value: 'Katelyn Rohan', content: 'Katelyn Rohan' },
+  ],
+};

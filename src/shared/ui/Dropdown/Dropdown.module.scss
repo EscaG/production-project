@@ -1,33 +1,25 @@
-.ListBox {
+.Dropdown {
   position: relative;
 }
 
-.trigger {
-  cursor: pointer;
-  border: 1px solid var(--primary-color);
-  color: var(--primary-color);
+.btn {
   background: none;
-  padding: 6px 15px;
+  outline: none;
   margin: 0;
-
-  &:hover {
-    opacity: 0.8;
-  }
-
-  &:disabled {
-    cursor: unset;
-    opacity: 0.8;
-  }
+  padding: 0;
+  border: none;
+  cursor: pointer;
 }
 
-.options {
+.menu {
   position: absolute;
-  overflow: hidden;
-  min-width: 100%;
-  background: var(--listbox-bg);
-  border-radius: 0 0 12px 12px;
-  box-shadow: 0 4px 8px  var(--listbox-bg);
+  background: var(--card-bg);
   z-index: 10;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
 
   &.optionsBottomLeft {
     right: 0;
@@ -52,9 +44,20 @@
   }
 }
 
-.optionsItem {
-  padding: 6px 15px;
+.item {
   cursor: pointer;
+  padding: 6px 15px;
+  width: 100%;
+  color: var(--primary-color);
+  background: none;
+  border: none;
+  outline: none;
+
+  &:disabled {
+    cursor: unset;
+    opacity: 0.8;
+    color: gray;
+  }
 }
 
 .active {

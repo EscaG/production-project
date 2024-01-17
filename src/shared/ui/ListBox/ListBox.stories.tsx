@@ -14,28 +14,48 @@ export default {
 } as ComponentMeta<typeof ListBox>;
 
 const Template: ComponentStory<typeof ListBox> = (props) => <ListBox {...props} />;
-let value: string| undefined;
-function setValue(str: string):void {
-  value = str;
-}
+const value: string = 'Katelyn Rohan';
 
 export const Primary = Template.bind({});
 Primary.args = {
   defaultValue: 'Выберите значение',
-  onChange: (str) => setValue(str),
   value,
   direction: 'bottom',
   items: [
-    { value: '1', content: '123' },
-    { value: '2', content: 'as' },
-    { value: '3', content: 'xcv', disabled: true },
-    { value: '4', content: 'ewt' },
-    { value: '5', content: 'tyjrthtrth' },
+    { value: 'Durward Reynolds', content: 'Durward Reynolds' },
+    { value: 'Kenton Towne', content: 'Kenton Towne' },
+    { value: 'Therese Wunsch', content: 'Therese Wunsch' },
+    { value: 'Benedict Kessler', content: 'Benedict Kessler', disabled: true },
+    { value: 'Katelyn Rohan', content: 'Katelyn Rohan' },
   ],
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
-
+  defaultValue: 'Выберите значение',
+  value,
+  direction: 'bottom',
+  items: [
+    { value: 'Durward Reynolds', content: 'Durward Reynolds' },
+    { value: 'Kenton Towne', content: 'Kenton Towne' },
+    { value: 'Therese Wunsch', content: 'Therese Wunsch' },
+    { value: 'Benedict Kessler', content: 'Benedict Kessler', disabled: true },
+    { value: 'Katelyn Rohan', content: 'Katelyn Rohan' },
+  ],
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const OrangeNotChosen = Template.bind({});
+OrangeNotChosen.args = {
+  defaultValue: 'Выберите значение',
+  value: undefined,
+  direction: 'bottom',
+  items: [
+    { value: 'Durward Reynolds', content: 'Durward Reynolds' },
+    { value: 'Kenton Towne', content: 'Kenton Towne', disabled: true },
+    { value: 'Therese Wunsch', content: 'Therese Wunsch' },
+    { value: 'Benedict Kessler', content: 'Benedict Kessler', disabled: true },
+    { value: 'Katelyn Rohan', content: 'Katelyn Rohan' },
+  ],
+};
+OrangeNotChosen.decorators = [ThemeDecorator(Theme.ORANGE)];

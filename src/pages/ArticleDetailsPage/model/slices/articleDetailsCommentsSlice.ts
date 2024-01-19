@@ -26,8 +26,8 @@ const articleDetailsCommentsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCommentsByArticleId.pending, (state) => {
-        state.error = undefined;
         state.isLoading = true;
+        state.error = undefined;
       })
       .addCase(fetchCommentsByArticleId.fulfilled, (
         state,

@@ -472,7 +472,7 @@
       "id": "18",
       "title": "Экономическая статья - ИНФЛЯЦИЯ!",
       "subtitle": "Экономика",
-      "img": "https://www.mirea.ru/upload/iblock/7cf/vvp_rf2018_1.jpg",
+      "img": "https://dia.dp.gov.ua/wp-content/uploads/2023/04/1673967370-1000x480.jpg",
       "views": 2022,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -571,6 +571,12 @@
       "userId": "2",
       "text": "first ruby comment",
       "id": "c3PfhZ-"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "new comment",
+      "id": "c5Xhx-o"
     }
   ],
   "users": [

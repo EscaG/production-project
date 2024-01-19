@@ -5,6 +5,8 @@
 .recommendation {
   padding: 20px 0 5px;
   flex-wrap: nowrap;
-  overflow-y: hidden;
-  overflow-x: auto;
+}
+
+.comments {
+  width: 100%;
 }

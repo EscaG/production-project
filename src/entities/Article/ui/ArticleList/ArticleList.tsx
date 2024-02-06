@@ -9,7 +9,7 @@ import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
   className?: string;
-  articles?: Article[];
+  articles: Article[];
   isLoading?: boolean;
   view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;

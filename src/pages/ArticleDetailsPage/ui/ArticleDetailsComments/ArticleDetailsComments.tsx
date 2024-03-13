@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, Suspense, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Text, TextSize } from 'shared/ui/Text/Text';
@@ -6,8 +6,8 @@ import { AddCommentForm } from 'features/addNewComment';
 import { CommentList } from 'entities/Comment';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getArticleDetailsIsLoading } from 'entities/Article';
 import { VStack } from 'shared/ui/Stack';
+import { Loader } from 'shared/ui/Loader/Loader';
 import {
   fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -19,7 +19,7 @@ import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 
 interface ArticleDetailsCommentsProps {
   className?: string;
-  id: string;
+  id?: string;
 }
 
 export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
@@ -31,7 +31,6 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
   const dispatch = useAppDispatch();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-  const isLoading = useSelector(getArticleDetailsIsLoading);
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -47,9 +46,10 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
         size={TextSize.L}
         title={t('Комментарии')}
       />
-      {!isLoading && (
+      <Suspense fallback={<Loader />}>
         <AddCommentForm onSendComment={onSendComment} />
-      )}
+      </Suspense>
+
       <CommentList
         isLoading={commentsIsLoading}
         comments={comments}

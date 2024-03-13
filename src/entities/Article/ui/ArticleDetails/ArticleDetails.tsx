@@ -27,7 +27,7 @@ import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
   className?: string;
-  id: string;
+  id?: string;
 }
 
 const reducers: ReducersList = {
@@ -50,7 +50,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     dispatch(fetchArticleById(id));
   });
 
-  const renderBlock = useCallback((block: ArticleBlock, index) => {
+  const renderBlock = useCallback((block: ArticleBlock, index: number) => {
     switch (block.type) {
       case ArticleBlockType.CODE:
         return <ArticleCodeBlockComponent key={block.type + index} className={cls.block} block={block} />;

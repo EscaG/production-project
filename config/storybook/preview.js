@@ -3,8 +3,9 @@ import { StyleDecorator } from '../../src/shared/config/storyBook/StyleDecorator
 import { ThemeDecorator } from '../../src/shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '../../src/app/providers/ThemeProvider';
 import { RouterDecorator } from '../../src/shared/config/storyBook/RouterDecorator/RouterDecorator';
-import { I18nDecorator } from '../../src/shared/config/storyBook/I18nDecorator/I18nDecorator';
-import { TranslationDecorator } from '../../src/shared/config/storyBook/TranslationDecorator/TranslationDecorator';
+import { SuspenseDecorator } from '../../src/shared/config/storyBook/SuspenseDecorator/SuspenseDecorator';
+// import { I18nDecorator } from '../../src/shared/config/storyBook/I18nDecorator/I18nDecorator';
+// import { TranslationDecorator } from '../../src/shared/config/storyBook/TranslationDecorator/TranslationDecorator';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -17,7 +18,8 @@ export const parameters = {
 };
 
 addDecorator(StyleDecorator);
-addDecorator(TranslationDecorator);
+// addDecorator(TranslationDecorator);
 addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(RouterDecorator);
+addDecorator(SuspenseDecorator);
 // addDecorator(I18nDecorator);

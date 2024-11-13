@@ -1,6 +1,6 @@
-export { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
-export {
-  Article, ArticleView, ArticleSortField, ArticleType,
+export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
+export type {
+  Article,
 } from './model/types/article';
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 export { ArticleList } from './ui/ArticleList/ArticleList';
@@ -12,3 +12,8 @@ export {
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from './model/selectors/articleDetails';
+export {
+  ArticleView,
+  ArticleType,
+  ArticleSortField,
+} from './model/constants/articleConstants';

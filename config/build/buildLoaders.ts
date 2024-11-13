@@ -1,9 +1,11 @@
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 import { buildCssLoaders } from './loaders/buildCssLoaders';
-// import { buildBabelLoader } from './loaders/buildBabelloader';
+import { buildBabelLoader } from './loaders/buildBabelloader';
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+  const { isDev } = options;
+
   const fileLoader = {
     test: /\.(png|jpe?g|gif|webp|woff|woff2|ttf)$/i,
     use: [
@@ -17,20 +19,15 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     test: /\.svg$/,
     use: ['@svgr/webpack'],
   };
-
-  const typeScriptLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/,
-  };
-
+  const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+  const tsxBabelLoader = buildBabelLoader({ ...options, isTsx: true });
   const scssLoader = buildCssLoaders(isDev);
-  // const babelLoader = buildBabelLoader(isDev);
 
   return [
     fileLoader,
     svgLoader,
-    typeScriptLoader,
+    codeBabelLoader,
+    tsxBabelLoader,
     scssLoader,
   ];
 }

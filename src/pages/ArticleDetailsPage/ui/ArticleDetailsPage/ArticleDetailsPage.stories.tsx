@@ -1,12 +1,12 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Article } from 'entities/Article';
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator/StoreDecorator';
+import { ArticleBlockType, ArticleType } from 'entities/Article/model/constants/articleConstants';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 export default {
-  title: 'pages/ArticleDetailPage',
+  title: 'pages/articleDetailsPage/ArticleDetailPage',
   component: ArticleDetailsPage,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -71,5 +71,9 @@ const article: Article = {
 export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [
-  StoreDecorator({}),
+  StoreDecorator({
+    articleDetails: {
+      data: article,
+    },
+  }),
 ];

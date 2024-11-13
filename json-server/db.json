@@ -472,7 +472,7 @@
       "id": "18",
       "title": "Экономическая статья - ИНФЛЯЦИЯ!",
       "subtitle": "Экономика",
-      "img": "https://www.mirea.ru/upload/iblock/7cf/vvp_rf2018_1.jpg",
+      "img": "https://dia.dp.gov.ua/wp-content/uploads/2023/04/1673967370-1000x480.jpg",
       "views": 2022,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -571,6 +571,24 @@
       "userId": "2",
       "text": "first ruby comment",
       "id": "c3PfhZ-"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "new comment",
+      "id": "c5Xhx-o"
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "text": "new comment",
+      "id": "R1Ngt7T"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "test update comment",
+      "id": "l6MMqFf"
     }
   ],
   "users": [
@@ -578,14 +596,27 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": [
+        "USER"
+      ],
+      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
     }
   ],

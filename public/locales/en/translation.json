@@ -36,5 +36,9 @@
   "Все статьи": "All articles",
 	"Статьи не найдены": "No articles found",
 	"My App": "My App",
-  "Создать статью": "Create an article"
+  "Создать статью": "Create an article",
+  "Ошибка при загрузке!": "Error loading!",
+  "Админ панель": "Admin panel",
+  "Админка": "Admin",
+  "У вас нет доступа к этой станице": "You do not have access to this page"
 }

@@ -5,18 +5,18 @@ import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { LoginSchema } from 'features/AuthByUsername';
-import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
-import { ProfileSchema } from 'entities/Profile';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { AddCommentFormSchema } from 'features/addNewComment';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { UISchema } from 'features/UI';
+import { rtkApi } from 'shared/api/rtkApi';
+import { ProfileSchema } from 'features/editableProfileCard';
 
 export interface StateSchema {
-  counter: CounterSchema;
   user: UserSchema;
   ui: UISchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   // Асинхронные редюсеры
   loginForm?: LoginSchema;

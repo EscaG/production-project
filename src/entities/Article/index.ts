@@ -1,7 +1,3 @@
-export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
-export type {
-  Article,
-} from './model/types/article';
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 export { ArticleList } from './ui/ArticleList/ArticleList';
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
@@ -17,3 +13,6 @@ export {
   ArticleType,
   ArticleSortField,
 } from './model/constants/articleConstants';
+
+export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
+export type { Article } from './model/types/article';

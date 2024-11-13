@@ -9,16 +9,13 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfileCard } from 'entities/Profile';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from 'shared/ui/Stack';
-import { EditableProfileCardHeader, ValidateProfileError } from '../..';
+import { ValidateProfileError } from '../../model/constants/constants';
+import { EditableProfileCardHeader } from '../../ui/EditableProfileCardHeader/EditableProfileCardHeader';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
-import {
-  getProfileIsLoading,
-} from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly';
-import {
-  getProfileValidateErrors,
-} from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 
